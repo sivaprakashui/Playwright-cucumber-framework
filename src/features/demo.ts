@@ -8,6 +8,11 @@ async function main() {
  const title = await page.title();
  console.log('Page title:', title);
 
+ // assert the title contains the expected text
+ if (!title.includes('Example Domain')) {
+  throw new Error(`Unexpected page title: ${title}`);
+ }
+
  await browser.close();
 }
 
